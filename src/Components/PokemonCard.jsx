@@ -1,22 +1,28 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { useNavigate } from 'react-router-dom';
 
 
 function PokemonCard({PokemonCard}) {
+    const navigate = useNavigate()
+    const navigateTo = (id) => {
+        navigate('/pokemon/' + id)
+    }
 
 
     return <>
-      <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src={"https://img.pokemondb.net/artwork/"+ PokemonCard.name +".jpg"} />
+    <div className='pokeCard' onClick={() => {navigateTo(PokemonCard.name)}}>
+      <Card style={{ width: '20rem' }}>
+      <Card.Img style={{ width: '8rem' }} className='card-img' variant="top" src={"https://img.pokemondb.net/artwork/"+ PokemonCard.name +".jpg"} />
         <Card.Body>
           <Card.Title>{PokemonCard.name}</Card.Title>
           <Card.Text>
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
+
           </Card.Text>
-          <Button variant="primary">Voir détails</Button>
+          <Button variant="outline-dark">Voir détails</Button>
         </Card.Body>
       </Card>
+      </div>
       </>
   }
 

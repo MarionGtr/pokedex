@@ -6,6 +6,7 @@ import PokemonService from "../Services/PokemonService";
 const HomePage = () => {
     const [pokemon, setPokemon] = useState([])
 
+
     const fetchPokemon = async () => {
         try {
             const response = await PokemonService.getAllPokemon()
