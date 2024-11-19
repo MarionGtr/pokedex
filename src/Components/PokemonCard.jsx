@@ -19,7 +19,7 @@ function PokemonCard({PokemonCard}) {
           <Card.Text>
 
           </Card.Text>
-          <Button variant="outline-dark">Voir détails</Button>
+          <Button className='card-btn'>Voir détails</Button>
         </Card.Body>
       </Card>
       </div>
