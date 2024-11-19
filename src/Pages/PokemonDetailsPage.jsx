@@ -43,61 +43,94 @@ const PokemonDetailsPage = () => {
         fetchPokemonByID(), fetchPokemonDetails()
     }, [])
 
+    //     let flavorText = "";
+    //   if (pokemon.flavor_text_entries) {
+    //     const frenchFlavor = pokemon.flavor_text_entries.find(
+    //       (entry) => entry.language.name === "fr"
+    //     );
+    //     flavorText = frenchFlavor
+    //       ? frenchFlavor.flavor_text
+    //       : "Aucune description en français disponible.";
+    //   }
 
-    return <Container className="d-flex flex-column align-items-center mt-3 gap-2">
 
-        <h4>N°{pokemon.id}</h4> 
-        <img src={"https://img.pokemondb.net/artwork/" + pokemon.name + ".jpg"} />
-        <h1>{pokemon.name}</h1>
+    return <Container className="page">
 
-        <p>{pokemonDetails.flavor_text_entries && pokemonDetails.flavor_text_entries[16].flavor_text}</p>
+        <div className="partie-gauche">
 
-        <h2>Types</h2>
-        <ul>
-            {pokemon.types && pokemon.types.map((type, index) => {
-                return <button className={type.type.name}>{type.type.name}</button>
-            })}
-        </ul>
-        <h2>Stats</h2>
-        <ul>
-            {pokemon.stats && pokemon.stats.map((stat, index) => {
-                return <li key={index}>{stat.stat.name} : {stat.base_stat}</li>
-            })}
-        </ul>
-        <h2>Game Versions</h2>
+            <div className="bloc-img">
+                <h5>N°{pokemon.id}</h5>
+                <h1> {pokemon.name}</h1>
+                <img src={"https://img.pokemondb.net/artwork/" + pokemon.name + ".jpg"} />
+            </div>
+
+            <div className="bloc-lore">
+                <h5>{pokemonDetails.flavor_text_entries && pokemonDetails.flavor_text_entries[16].flavor_text}</h5>
+            </div>
+
+
+            <div className="bloc-type">
+                <h2>Types</h2>
+
+                <ul>
+                    {pokemon.types && pokemon.types.map((type, index) => {
+                        return <button className={type.type.name}>{type.type.name}</button>
+                    })}
+                </ul>
+            </div>
+
+            <div className="bloc-weakness">
+                <h2>Weakness</h2>
+                <ul>
+
+                    {weakness.damage_relations?.double_damage_from && (
+                        <div>
+                            <strong>Double damage from:</strong>
+
+                            {weakness.damage_relations.double_damage_from.map((relation, index) => (
+                                <button className={relation.name}>{relation.name}</button>
+                            ))}
+                        </div>
+
+                    )}
+
+                    {weakness.damage_relations?.double_damage_to && (
+                        <div>
+                            <strong>Double damage to:</strong>
+
+                            {weakness.damage_relations.double_damage_to.map((relation, index) => (
+                                <button className={relation.name}>{relation.name}</button>
+                            ))}
+
+                        </div>
+                    )}
+                </ul>
+            </div>
+
+        </div>
+        <div className="partie-droite">
+            <div className="bloc-stat">
+
+                <h2>Stats</h2>
+                <ul>
+                    {pokemon.stats && pokemon.stats.map((stat, index) => {
+                        return <li key={index}>{stat.stat.name} : {stat.base_stat}</li>
+                    })}
+                </ul>
+            </div>
+            <div className="bloc-version">
+                <h2>Game Versions</h2>
                 <ul>
                     {pokemon.game_indices &&
                         pokemon.game_indices.map((game, index) => (
                             <div key={index}>
-                             <button>{game.version.name}</button>
+                                <button className={game.version.name}>{game.version.name}</button>
                             </div>
                         ))}
                 </ul>
-            <h2>Weakness</h2>
-            <ul>
+            </div>
+        </div>
 
-    {weakness.damage_relations?.double_damage_from && (
-  <div>
-            <strong>Double damage from:</strong>
-
-                {weakness.damage_relations.double_damage_from.map((relation, index) => (
-                    <button className={relation.name}>{relation.name}</button>
-                ))}
-</div>
-    
-    )}
-
-    {weakness.damage_relations?.double_damage_to && (
-<div>
-            <strong>Double damage to:</strong>
-          
-                {weakness.damage_relations.double_damage_to.map((relation, index) => (
-                     <button className={relation.name}>{relation.name}</button>
-                ))}
-      
- </div>
-    )}
-</ul>
 
     </Container>
 
