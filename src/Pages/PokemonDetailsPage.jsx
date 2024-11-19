@@ -46,16 +46,16 @@ const PokemonDetailsPage = () => {
 
     return <Container className="d-flex flex-column align-items-center mt-3 gap-2">
 
-        <h2>N°{pokemon.id}</h2> 
+        <h4>N°{pokemon.id}</h4> 
         <img src={"https://img.pokemondb.net/artwork/" + pokemon.name + ".jpg"} />
-        <p>{pokemon.name}</p>
+        <h1>{pokemon.name}</h1>
 
         <p>{pokemonDetails.flavor_text_entries && pokemonDetails.flavor_text_entries[16].flavor_text}</p>
 
         <h2>Types</h2>
         <ul>
             {pokemon.types && pokemon.types.map((type, index) => {
-                return <button> <div key={index}>{type.type.name}</div></button>
+                return <button className={type.type.name}>{type.type.name}</button>
             })}
         </ul>
         <h2>Stats</h2>
@@ -77,25 +77,25 @@ const PokemonDetailsPage = () => {
             <ul>
 
     {weakness.damage_relations?.double_damage_from && (
-        <li>
+  <div>
             <strong>Double damage from:</strong>
-            <ul>
+
                 {weakness.damage_relations.double_damage_from.map((relation, index) => (
-                    <li key={index}>{relation.name}</li>
+                    <button className={relation.name}>{relation.name}</button>
                 ))}
-            </ul>
-        </li>
+</div>
+    
     )}
 
     {weakness.damage_relations?.double_damage_to && (
-        <li>
+<div>
             <strong>Double damage to:</strong>
-            <ul>
+          
                 {weakness.damage_relations.double_damage_to.map((relation, index) => (
-                    <li key={index}>{relation.name}</li>
+                     <button className={relation.name}>{relation.name}</button>
                 ))}
-            </ul>
-        </li>
+      
+ </div>
     )}
 </ul>
 
