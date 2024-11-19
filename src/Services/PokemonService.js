@@ -13,8 +13,11 @@ function getPokemonDetails(id){
     return axios.get("https://pokeapi.co/api/v2/pokemon-species/" + id)
 }
 
+function getPokemonWeakness(id){
+    return axios.get('https://pokeapi.co/api/v2/type/'+id);
+  }
 
 export default{
-    getAllPokemon, getPokemonByID, getPokemonDetails
+    getAllPokemon, getPokemonByID, getPokemonDetails, getPokemonWeakness
 
 }

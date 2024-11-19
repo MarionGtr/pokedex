@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const NavBar = () => {
 
     return <>
-        <Navbar expand="lg" className="bg-body-tertiary">
+        <Navbar expand="lg" className="navbar">
             <Container>
                 <Navbar.Brand>
                     <Link className='navbar-titre' to={'/'} >POKEDEX</Link>

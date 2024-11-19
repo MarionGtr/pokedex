@@ -12,8 +12,8 @@ function PokemonCard({PokemonCard}) {
 
     return <>
     <div className='pokeCard' onClick={() => {navigateTo(PokemonCard.name)}}>
-      <Card style={{ width: '20rem' }}>
-      <Card.Img style={{ width: '8rem' }} className='card-img' variant="top" src={"https://img.pokemondb.net/artwork/"+ PokemonCard.name +".jpg"} />
+      <Card >
+      <Card.Img  className='card-img' variant="top" src={"https://img.pokemondb.net/artwork/"+ PokemonCard.name +".jpg"} />
         <Card.Body>
           <Card.Title>{PokemonCard.name}</Card.Title>
           <Card.Text>

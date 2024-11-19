@@ -25,14 +25,17 @@ const HomePage = () => {
     }, [])
 
     return <>
-        <h1>home page</h1>
+        <div className="body">
+            <div className="divLogo">
+                <img className="logoPokemon" src="src/pngpokemon.png" alt="pokemonimg" />
+            </div>
+            <div className="d-flex justify-content-center flex-wrap gap-3 mt-3">
+                {pokemon.map((pokemon) => {
+                    return <PokemonCard PokemonCard={pokemon} key={pokemon.id}></PokemonCard>
 
-        <div className="d-flex justify-content-center flex-wrap gap-3 mt-3">
-            {pokemon.map((pokemon) => {
-                return <PokemonCard PokemonCard={pokemon} key={pokemon.id}></PokemonCard>
+                })}
 
-            })}
-
+            </div>
         </div>
     </>
 }
