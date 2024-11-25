@@ -39,10 +39,8 @@ const HomePage = () => {
 
     return <>
         <div className="body">
-            <div className="divLogo">
-                <img className="logoPokemon" src="src/pngpokemon.png" alt="pokemonimg" />
-            </div>
-            <div className="d-flex justify-content-center flex-wrap gap-3 mt-3">
+
+            <div className="d-flex justify-content-center flex-wrap gap-3 mt-4">
                 {pokemon.map((pokemon) => {
                     return <PokemonCard PokemonCard={pokemon} key={pokemon.id}></PokemonCard>
 

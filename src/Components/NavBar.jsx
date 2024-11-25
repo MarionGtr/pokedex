@@ -7,14 +7,22 @@ const NavBar = () => {
 
     return <>
         <Navbar expand="lg" className="navbar">
-            <Container>
+            <Container className="d-flex gap-3">
+            <img
+              alt="logo"
+              src="src/pngpokemon.png"
+              width="100"
+              height=""
+              className="logoPokemon"
+            />
                 <Navbar.Brand>
-                    <Link className='navbar-titre' to={'/'} >POKEDEX</Link>
+                    <Link className='navbar-titre' to={'/'} >Pokédex</Link>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="me-auto">
-                        <Link className='navbar-txt' to={'/TypePage'} href="#types">Types</Link>
+                    <Nav className="d-flex gap-3">
+                        <Link className='navbar-txt' to={'/TypePage'}>Types</Link>
+                        <Link className='navbar-txt' to={'/GenerationPage'}>Générations</Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
