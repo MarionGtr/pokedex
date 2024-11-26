@@ -6,17 +6,19 @@ import { Link, useNavigate } from 'react-router-dom';
 import TypeService from '../Services/TypeService';
 import { NavDropdown } from 'react-bootstrap';
 import GenerationService from '../Services/GenerationService';
+import VersionService from '../Services/VersionService';
 
 const NavBar = () => {
     const navigate = useNavigate()
     const [types, setTypes] = useState([])
-    const [gen, setGen] = useState ([])
+    const [gen, setGen] = useState([])
+    const [versions, setVersions] = useState([])
 
 
     const fetchTypes = async () => {
         try {
             const response = await TypeService.getAllTypes()
-           setTypes(response.data.results)
+            setTypes(response.data.results)
         } catch (error) {
             console.log(error)
         }
@@ -30,7 +32,7 @@ const NavBar = () => {
     const fetchGen = async () => {
         try {
             const response = await GenerationService.getAllGen()
-           setGen(response.data.results)
+            setGen(response.data.results)
         } catch (error) {
             console.log(error)
         }
@@ -38,6 +40,21 @@ const NavBar = () => {
 
     useEffect(() => {
         fetchGen()
+    }, [])
+
+
+    const fetchVersion = async () => {
+        try {
+            const response = await VersionService.getAllVersion()
+            setVersions(response.data.results)
+            console.log(response.data)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    useEffect(() => {
+        fetchVersion()
     }, [])
 
     return <>
@@ -61,15 +78,23 @@ const NavBar = () => {
                                 return <NavDropdown.Item className="txt-menu" key={type.name + "nav"} onClick={() => { navigate('/type/' + type.name) }}>{type.name}</NavDropdown.Item>
                             }
                             )}
-                        </NavDropdown>   
+                        </NavDropdown>
                     </Nav>
                     <Nav className="d-flex gap-3">
                         <NavDropdown className="txt-dropdown" title="Générations" id="basic-nav-dropdown">
                             {gen.map((gen, index) => {
-                                return <NavDropdown.Item  key={gen.name + "nav"} onClick={() => { navigate('/gen/' + gen.name) }}>{gen.name}</NavDropdown.Item>
+                                return <NavDropdown.Item key={gen.name + "nav"} onClick={() => { navigate('/gen/' + gen.name) }}>{gen.name}</NavDropdown.Item>
                             }
                             )}
-                        </NavDropdown>   
+                        </NavDropdown>
+                    </Nav>
+                    <Nav className="d-flex gap-3">
+                        <NavDropdown className="txt-dropdown" title="Versions" id="basic-nav-dropdown">
+                            {versions.map((versions, index) => {
+                                return <NavDropdown.Item key={versions.name + "nav"} onClick={() => { navigate('/version/' + versions.name) }}>{versions.name}</NavDropdown.Item>
+                            }
+                            )}
+                        </NavDropdown>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

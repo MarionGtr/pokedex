@@ -15,7 +15,6 @@ const GenPage = () => {
         try {
             const response = await GenerationService.getGenByID(gen)
 
-            console.log(response.data)
             setGenByID(response.data)
 
         } catch (error) {
@@ -29,7 +28,7 @@ const GenPage = () => {
 
 
     return <Container className="d-flex flex-column align-items-center mt-3 col-12">
-
+        <h2>{genByID.names && genByID.names[3].name}</h2>
         <div className="d-flex justify-content-center flex-wrap gap-3 mt-3 col-12">
 
             {genByID.pokemon_species && genByID.pokemon_species.map((gen, index) => (
