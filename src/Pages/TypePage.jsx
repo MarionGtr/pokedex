@@ -30,11 +30,12 @@ import { Container } from "react-bootstrap";
 
 
     return <Container className="d-flex flex-column align-items-center mt-3 col-12">
-
+        <h2 className="type-txt">{type.name && type.name[3].name}</h2>
+        
         <div className="d-flex justify-content-center flex-wrap gap-3 mt-3 col-12">
 
             {typeByID.pokemon && typeByID.pokemon.map((type) => {
-                return <PokemonCard PokemonCard={type.pokemon} key={type.id}></PokemonCard>
+                return  <PokemonCard PokemonCard={type.pokemon} key={type.id}></PokemonCard>
 
             })}
         </div>

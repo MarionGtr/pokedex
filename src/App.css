@@ -454,8 +454,8 @@ button{
 
 .navbar {
   background-color: #2a4e89;
-  display: flex;
-  gap:10vw;
+
+
 
 }
 
@@ -464,9 +464,8 @@ button{
   text-decoration: none;
   font-size: x-large;
   display: flex;
-  gap:2vw;
   font-size: large;
-    font-size: 2vw;
+  font-size: 2vw;
 
 
 }
@@ -474,19 +473,11 @@ button{
   color: #fcc00c;
 }
 
-.navbar-txt {
-  color: white;
-  text-decoration: none;
-  font-size: large;
-  display: flex;
-  gap:3vw;
-  font-size: large;
 
-
-}
-
-.navbar-txt:hover{
-    color: #fcc00c;
+.btn-navbar{
+  width:4rem;
+  background-color: #2a4e89;
+  box-shadow: none;
 }
 
 .dropdown-menu{
@@ -494,6 +485,23 @@ button{
   overflow-y: auto;
 }
 
+.txt-dropdown{
+  color: #fcc00c;
+}
+
+.navbar a{
+  color: black;
+  font-size: 1.5vw;
+}
+
+.navbar a:hover{
+color:#fcc00c;
+}
+
+.txt-menu{
+color: #000000;
+
+}
 .logoPokemon {
   width: 10vw;
 }
@@ -507,13 +515,21 @@ button{
 }
 
 
+
+
 .bloc-img h1 {
   text-transform: uppercase;
 
 }
+.searchForm{
+  display: flex;
+  justify-content: center;
+  padding-top: 2vw;
 
-.bloc-lore {
-
+}
+.form{
+  display: flex;
+  width:80%;
 }
 
 .bloc-type {

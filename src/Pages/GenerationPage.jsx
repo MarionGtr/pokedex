@@ -16,7 +16,6 @@ const GenPage = () => {
             const response = await GenerationService.getGenByID(gen)
 
             console.log(response.data)
-
             setGenByID(response.data)
 
         } catch (error) {
@@ -33,11 +32,8 @@ const GenPage = () => {
 
         <div className="d-flex justify-content-center flex-wrap gap-3 mt-3 col-12">
 
-            <h1>page gen</h1>
-
             {genByID.pokemon_species && genByID.pokemon_species.map((gen, index) => (
-                // return <PokemonCard PokemonCard={gen.pokemon_species} key={gen.id}></PokemonCard>
-                <p>{gen.name}</p>
+                <PokemonCard PokemonCard={gen}>{gen.name}</PokemonCard>
             ))}
         </div>
     </Container>

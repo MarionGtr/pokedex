@@ -51,11 +51,11 @@ const HomePage = () => {
     return <>
         <div className="body">
 
-            <div className="d-flex justify-content-center mt-3 col-10">
+
                 <div className="searchForm">
-                    <Form.Control type="text" placeholder="Rechercher" value={searchValue} onChange={handleChange}></Form.Control>
+                    <Form.Control className="form" type="text" placeholder="Rechercher" value={searchValue} onChange={handleChange}></Form.Control>
                 </div>
-            </div>
+
 
             <div className="d-flex justify-content-center flex-wrap gap-3 mt-4">
                 {filteredPokemons.map((pokemon) => {
@@ -64,7 +64,7 @@ const HomePage = () => {
                 })}
 
             </div>
-        </div>
+        
         <Container className="d-flex justify-content-center">
             <Pagination className="mt-5">
                 {currentPage > 1 && <>
@@ -99,6 +99,7 @@ const HomePage = () => {
 
             </Pagination>
         </Container>
+        </div>
     </>
 }
 

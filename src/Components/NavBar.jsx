@@ -11,7 +11,7 @@ const NavBar = () => {
     const navigate = useNavigate()
     const [types, setTypes] = useState([])
     const [gen, setGen] = useState ([])
-    
+
 
     const fetchTypes = async () => {
         try {
@@ -53,20 +53,20 @@ const NavBar = () => {
                 <Navbar.Brand>
                     <Link className='navbar-titre' to={'/'} >Pokédex</Link>
                 </Navbar.Brand>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Toggle className="btn-navbar" aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="d-flex gap-3">
-                        <NavDropdown title="Types" id="basic-nav-dropdown">
+                        <NavDropdown className="txt-dropdown" title="Types" id="basic-nav-dropdown">
                             {types.map((type, index) => {
-                                return <NavDropdown.Item key={type.name + "nav"} onClick={() => { navigate('/type/' + type.name) }}>{type.name}</NavDropdown.Item>
+                                return <NavDropdown.Item className="txt-menu" key={type.name + "nav"} onClick={() => { navigate('/type/' + type.name) }}>{type.name}</NavDropdown.Item>
                             }
                             )}
                         </NavDropdown>   
                     </Nav>
                     <Nav className="d-flex gap-3">
-                        <NavDropdown title="Générations" id="basic-nav-dropdown">
+                        <NavDropdown className="txt-dropdown" title="Générations" id="basic-nav-dropdown">
                             {gen.map((gen, index) => {
-                                return <NavDropdown.Item key={gen.name + "nav"} onClick={() => { navigate('/gen/' + gen.name) }}>{gen.name}</NavDropdown.Item>
+                                return <NavDropdown.Item  key={gen.name + "nav"} onClick={() => { navigate('/gen/' + gen.name) }}>{gen.name}</NavDropdown.Item>
                             }
                             )}
                         </NavDropdown>   
