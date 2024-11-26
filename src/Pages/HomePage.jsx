@@ -2,13 +2,19 @@ import { useEffect, useState } from "react";
 import PokemonCard from "../Components/PokemonCard";
 import PokemonService from "../Services/PokemonService";
 import { Container, Pagination } from "react-bootstrap";
+import Form from 'react-bootstrap/Form'
 
 
 const HomePage = () => {
     const [pokemon, setPokemon] = useState([])
     const [currentPage, setCurrentPage] = useState(1)
     const [maxPage, setMaxPage] = useState(100)
+    const [searchValue, setSearchValue] = useState("")
+    const [filteredPokemons, setFilteredPokemons] = useState([])
 
+    const handleChange = (event) => {
+        setSearchValue(event.currentTarget.value)
+    }
 
     const fetchPokemon = async () => {
         try {
@@ -16,6 +22,7 @@ const HomePage = () => {
             const res = response.data.results
             console.log(res)
             setPokemon(res)
+            setFilteredPokemons(res)
             setMaxPage(100);
             setTimeout(() => {
                 window.scrollTo({
@@ -24,8 +31,6 @@ const HomePage = () => {
                     behavior: "instant",
                 });
             }, 50)
-
-
 
 
         } catch (error) {
@@ -37,11 +42,23 @@ const HomePage = () => {
         fetchPokemon()
     }, [currentPage])
 
+    useEffect(() => {
+        setFilteredPokemons(pokemon.filter((pokemon) => {
+            return pokemon.name.toLowerCase().includes(searchValue.toLowerCase())
+        }))
+    },[searchValue])
+
     return <>
         <div className="body">
 
+            <div className="d-flex justify-content-center mt-3 col-10">
+                <div className="searchForm">
+                    <Form.Control type="text" placeholder="Rechercher" value={searchValue} onChange={handleChange}></Form.Control>
+                </div>
+            </div>
+
             <div className="d-flex justify-content-center flex-wrap gap-3 mt-4">
-                {pokemon.map((pokemon) => {
+                {filteredPokemons.map((pokemon) => {
                     return <PokemonCard PokemonCard={pokemon} key={pokemon.id}></PokemonCard>
 
                 })}

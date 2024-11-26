@@ -16,9 +16,6 @@ function PokemonCard({PokemonCard}) {
       <Card.Img  className='card-img' variant="top" src={"https://img.pokemondb.net/artwork/"+ PokemonCard.name +".jpg"} />
         <Card.Body>
           <Card.Title>{PokemonCard.name}</Card.Title>
-          <Card.Text>
-
-          </Card.Text>
           <Button className='card-btn'>Voir détails</Button>
         </Card.Body>
       </Card>

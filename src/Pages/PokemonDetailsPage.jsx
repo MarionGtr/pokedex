@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import PokemonService from "../Services/PokemonService"
 import { Container } from "react-bootstrap";
-import GraphicStat from "./GraphicStat";
+import GraphicStat from "../Components/GraphicStat";
 
 
 const PokemonDetailsPage = () => {
@@ -62,13 +62,13 @@ return <Container className="page">
     <div className="partie-gauche">
 
         <div className="bloc-img">
-            <h5>N°{pokemon.id}</h5>
+            <h5>#{pokemon.id}</h5>
             <h1> {pokemon.name}</h1>
             <img src={"https://img.pokemondb.net/artwork/" + pokemon.name + ".jpg"} />
         </div>
 
         <div className="bloc-lore">
-            <h5>{pokemonDetails.flavor_text_entries && pokemonDetails.flavor_text_entries[16].flavor_text}</h5>
+            <h5>{pokemonDetails.flavor_text_entries && pokemonDetails.flavor_text_entries[1].flavor_text}</h5>
         </div>
 
 

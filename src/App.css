@@ -80,7 +80,7 @@ button:hover{
 button{
   border-radius: 15px;
   padding: 0.5vw;
-  width: 7rem;
+  width: 8rem ;
   text-transform: uppercase;
   font-size: large;
   border-style: none;
@@ -436,6 +436,12 @@ button{
   background-color: #2a4e89 !important;
   border-style: none !important;
   box-shadow: 0px 10px 20px -2px rgba(134, 132, 132, 0.801);
+  display: flex;
+  width:80%;
+  justify-content: center;
+  margin-top: 1vw;
+
+
 
 
 }
@@ -481,6 +487,11 @@ button{
 
 .navbar-txt:hover{
     color: #fcc00c;
+}
+
+.dropdown-menu{
+  height:200px;
+  overflow-y: auto;
 }
 
 .logoPokemon {

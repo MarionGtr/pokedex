@@ -2,8 +2,11 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import NavBar from './Components/NavBar'
 import HomePage from './Pages/HomePage'
-import TypePage from './Pages/typePage'
+import TypePage from './Pages/TypePage'
 import PokemonDetailsPage from './Pages/PokemonDetailsPage'
+import GenerationPage from './Pages/GenerationPage'
+
+
 import './App.css'
 
 function App() {
@@ -14,7 +17,8 @@ function App() {
                 <Routes>
                     <Route path='/' element={<HomePage></HomePage>}></Route>
                     <Route path='/pokemon/:id' element={<PokemonDetailsPage></PokemonDetailsPage>}></Route>
-                    <Route path='/TypePage' element={<TypePage></TypePage>}></Route>
+                    <Route path='/type/:type' element={<TypePage></TypePage>}></Route>
+                    <Route path='/gen/:gen' element={<GenerationPage></GenerationPage>}></Route>
                 </Routes>
         </BrowserRouter>
 
